@@ -1,0 +1,53 @@
+
+<h3>Nuovo prodotto</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+
+<form [formGroup]="piattoForm" (ngSubmit)="salvaPiatto($event)">
+
+  <p class="form-group">
+    <mdl-textfield label="Nome" type="text" formControlName="nomePiatto" floating-label required></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-select multiple="true"  formControlName="tipologiaPiatto" placeholder="Tipologia">
+      <mdl-option [value]><em>-- Seleziona --</em></mdl-option>
+      <mdl-option *ngFor="let c of tipologiaPiatto" [value]="c.code">{{c.name}}</mdl-option>
+    </mdl-select>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Ricetta" type="text" formControlName="ricetta" floating-label required></mdl-textfield>
+  </p>
+
+
+  <p class="form-group">
+    <mdl-textfield label="Prezzo" type="number" formControlName="prezzo" floating-label required step="any" ></mdl-textfield>
+  </p>
+
+  <div class="form-group">
+     <input id="file" name="file" type="file" required>
+      <p  *ngIf="finito">sto caricando....</p>
+     <button mdl-button mdl-button-type="raised" mdl-colored="primary" (click)="upload()" type="button">Carica</button>
+  </div>
+  <div class="form-group">
+      
+  </div>
+
+
+ <p class="form-group">
+  <button type="submit" mdl-button mdl-button-type="raised" mdl-colored="accent">
+    Salva
+  </button>
+  </p>
+
+</form>  
+
+</div>
+</div>
+</div>
+</div>

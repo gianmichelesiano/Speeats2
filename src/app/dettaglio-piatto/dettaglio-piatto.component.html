@@ -1,0 +1,66 @@
+<div class="mdl-grid demo-content">
+
+		<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple><mdl-icon>playlist_play</mdl-icon></button>
+                <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-left">
+                  
+
+                  <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="offertaPiatto()">Metti in Offerta</mdl-menu-item>
+
+                   <mdl-menu-item mdl-ripple (click)="mofidicaPiatto()">Modifica Info</mdl-menu-item>
+                   <mdl-menu-item mdl-ripple (click)="editUserDialog.show()">Elimina</mdl-menu-item>
+
+                          <!-- dialog per cancellare  -->
+                          <mdl-dialog #editUserDialog
+                                      [mdl-dialog-config]="{
+                                        clickOutsideToClose: true,
+                                        styles:{'width': '300px'},
+                                        isModal:true,
+                                        openFrom: editUserButton,
+                                        enterTransitionDuration: 400,
+                                        leaveTransitionDuration: 400}"
+                                      (show)="onDialogShow(dialogRef)"
+                                      (hide)="onDialogHide()">
+                            <h3 class="mdl-dialog__title">Cancella piatto</h3>
+
+                            <div class="mdl-dialog__actions">
+                              <button mdl-button (click)="deletePiatto()" mdl-button-type="raised" mdl-colored="accent" mdl-ripple>Cancella</button>
+                              <button mdl-button (click)="editUserDialog.close()" mdl-ripple>No</button>
+                            </div>
+                          </mdl-dialog>
+                           <!-- fine dialog-->  
+
+                </mdl-menu>
+            </div>
+
+		
+
+	<div class="mdl-cell mdl-cell--2-col"></div>
+			<div class="mdl-cell mdl-cell--4-col">
+<!-- <img [src]="downloadURL | async" style="max-width:300px;max-height:300px;"> -->
+   <div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>     
+   <img [hidden]="loading" (load)="onLoad()" [src]="downloadURL | async" style="max-width:300px;max-height:300px;"/>
+			</div>
+			<div class="mdl-cell mdl-cell--2-col" >
+			 <p>Nome</p>
+			 <p>Tipologia:</p>
+			 <p>Ricetta :</p>
+			 <p *ngIf="!(piatto | async)?.inOfferta">Prezzo</p>
+			 <del *ngIf="(piatto | async)?.inOfferta">Prezzo</del>
+			 <p *ngIf="(piatto | async)?.inOfferta">Prezzo Offerta</p>
+			</div>
+			<div class="mdl-cell mdl-cell--4-col">
+			 <p>{{ (piatto | async)?.nomePiatto  }}</p>
+			 <p>{{ (piatto | async)?.tipologiaPiatto  }}</p>
+			 <p>{{ (piatto | async)?.ricetta  }}</p>
+
+			 <p *ngIf="!(piatto | async)?.inOfferta">{{ (piatto | async)?.prezzo | number: '.2'}} CHF</p>
+			 <del *ngIf="(piatto | async)?.inOfferta">{{ (piatto | async)?.prezzo  | number: '.2'}} CHF</del>
+			 <p *ngIf="(piatto | async)?.inOfferta">{{ (piatto | async)?.prezzoOfferta  | number: '.2'}} CHF</p>
+
+			</div>
+
+
+		</div>
+</div>

@@ -1,0 +1,37 @@
+   <div class="sposta">
+   <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="tornaAlPiatto()">Torna al piatto</button>
+   </div>
+
+
+<h3>Offerta Piatto</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+<form>
+
+  <p>{{(piatto | async)?.nomePiatto}}</p>
+  <p>Prezzo normale: {{(piatto | async)?.prezzo}}</p>
+
+  <p class="form-group">
+    <mdl-textfield label="Prezzo in offerta" style="width: 600px;" type="number" #prezzoInOfferta [value]="(piatto | async)?.prezzoOfferta" floating-label></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="" style="width: 600px;" type="date" #dataScadenza [value]="(piatto | async)?.dataScadenza" floating-label></mdl-textfield>
+  </p>
+
+
+ <p class="form-group">
+  <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="inserisciOfferta(prezzoInOfferta.value, dataScadenza.value)">
+    Salva
+  </button>
+  </p>
+</form>  
+
+</div>
+</div>
+</div>
+</div>

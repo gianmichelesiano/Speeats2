@@ -1,0 +1,39 @@
+
+<h3>Nuovo mezzo</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+
+<form [formGroup]="mezzoForm" (ngSubmit)="salvaMezzo($event)">
+
+  <p class="form-group">
+    <mdl-textfield label="Nome" type="text" formControlName="nome" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Tipologia" type="text" formControlName="tipologia" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Carico massimo" type="text" formControlName="caricoMax" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Da Consegnare" type="text" formControlName="daConsegnare" floating-label required="true"></mdl-textfield>
+  </p>
+
+ <p class="form-group">
+  <button type="submit" mdl-button mdl-button-type="raised" mdl-colored="accent">
+    Salva
+  </button>
+  </p>
+
+</form>  
+
+</div>
+</div>
+</div>
+</div>

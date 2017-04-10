@@ -1,0 +1,28 @@
+<div class="mdl-grid">
+   <!--Inizio Cella-->
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+
+      <th class="mdl-data-table__cell--non-numeric">Cliente</th>
+      <th class="mdl-data-table__cell--non-numeric">Indirizzo</th>
+      <th class="mdl-data-table__cell--non-numeric">Mezzo</th>
+      <th class="mdl-data-table__cell--non-numeric">Ordine</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of consegne | async ">
+
+<td><button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="dettaglioCliente(item.idCliente)">{{ (item.cliente | async)?.nome }} {{ (item.cliente | async)?.cognome }}</button></td>    
+       <td class="mdl-data-table__cell--non-numeric"> {{ (item.cliente | async)?.indirizzo }}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{ (item.mezzo | async)?.nome }}</td>
+<td><button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="dettaglioOrdine(item.$key)">Ordine</button></td>    
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+

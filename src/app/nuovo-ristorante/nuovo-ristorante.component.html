@@ -1,0 +1,67 @@
+
+<h3>Nuovo ristorante</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+
+<form [formGroup]="ristoranteForm" (ngSubmit)="salvaRistorante($event)">
+
+  <p class="form-group">
+    <mdl-textfield label="Nome ristorante" type="text" formControlName="nome" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-select multiple="true"  formControlName="tipologia" placeholder="Tipologia Ristorante">
+      <mdl-option [value]><em>-- Seleziona --</em></mdl-option>
+      <mdl-option *ngFor="let c of countries" [value]="c.code">{{c.name}}</mdl-option>
+    </mdl-select>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Indirizzo" type="text" formControlName="indirizzo" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-select multiple="true"  formControlName="giorniApertura" placeholder="Giorni Apertura">
+      <mdl-option [value]><em>-- Seleziona --</em></mdl-option>
+      <mdl-option *ngFor="let c of giorni" [value]="c.code">{{c.name}}</mdl-option>
+    </mdl-select>
+  </p>
+
+
+  <p class="form-group">
+    <mdl-textfield label="Max tempo di consegna" type="number" formControlName="maxTempoConsegna" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Costo Consegna" type="number" formControlName="costoConsegna" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Ordine Minimo" type="number" formControlName="ordineMin" floating-label required="true"></mdl-textfield>
+  </p>
+
+  <div class="form-group">
+     <input id="file" name="file" type="file" required="true">
+      <p  *ngIf="finito">sto caricando....</p>
+     <button mdl-button mdl-button-type="raised" mdl-colored="primary" (click)="upload()" type="button">Carica</button>
+  </div>
+  <div class="form-group">
+      
+  </div>
+
+
+ <p class="form-group">
+  <button type="submit" mdl-button mdl-button-type="raised" mdl-colored="accent">
+    Salva
+  </button>
+  </p>
+</form>  
+
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,63 @@
+   <div class="sposta">
+   <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="nuovoMezzo()">Aggiungi nuovo</button>
+   </div>
+
+<div class="mdl-grid">
+   <!--Inizio Cella-->
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Nome</th>
+      <th class="mdl-data-table__cell--non-numeric">Tipologia</th>
+      <th class="mdl-data-table__cell--non-numeric">Carico Max</th>
+      <th class="mdl-data-table__cell--non-numeric">Da Consegnare</th>
+
+      <th class="mdl-data-table__cell--non-numeric">Aggiorna Pos</th>
+      <th class="mdl-data-table__cell--non-numeric">Modifica</th>
+      <th class="mdl-data-table__cell--non-numeric">Disponibile</th>
+      <th class="mdl-data-table__cell--non-numeric">Consegne</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of mezzi | async ">
+       <td class="mdl-data-table__cell--non-numeric">{{item.nome}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.tipologia}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.caricoMax}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.daConsegnare}}</td>
+
+
+   <td><button mdl-button mdl-button-type="mini-fab" mdl-colored="accent" (click)="aggiornaPosizione(item.$key)"><mdl-icon>place</mdl-icon></button></td>
+
+   <td><button mdl-button mdl-button-type="mini-fab" mdl-colored="primary" (click)="modificaMezzo(item.$key)"><mdl-icon>create</mdl-icon></button></td>
+
+   <td *ngIf="item.disponibile">  <button mdl-button mdl-button-type="raised" mdl-colored="primary" (click)="disponibile(item.$key, item.disponibile)">Si</button></td>
+
+  	<td *ngIf="!item.disponibile">  <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="disponibile(item.$key, item.disponibile)">No</button></td>
+
+    <td><button mdl-button mdl-button-type="mini-fab" mdl-colored="primary" (click)="consegneMezzo(item.$key)"><mdl-icon>directions_bike</mdl-icon></button></td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+<div class="mdl-grid">
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+		<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+
+		  <sebm-google-map-marker *ngFor="let item of listaMezziOccupati | async" [latitude]="(item.listaPosizioni | async)?.lat" [longitude]="(item.listaPosizioni | async)?.lng"  [label]="item.tipologia">
+		        <sebm-google-map-info-window>
+		          <strong>{{item.nome}}</strong>
+		          <p>{{item.caricoMax}}</p>
+              <p>{{ (item.listaPosizioni | async)?.idGuidatore }}</p>
+		        </sebm-google-map-info-window>
+		  </sebm-google-map-marker>
+
+		</sebm-google-map>
+	</div>
+</div>
+

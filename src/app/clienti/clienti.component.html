@@ -1,0 +1,27 @@
+<div class="mdl-grid">
+   <!--Inizio Cella-->
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+
+      <th class="mdl-data-table__cell--non-numeric">Nome</th>
+      <th class="mdl-data-table__cell--non-numeric">Cognome</th>
+      <th class="mdl-data-table__cell--non-numeric">Info</th>
+      <th class="mdl-data-table__cell--non-numeric">Ordini</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of clienti | async ">
+       <td class="mdl-data-table__cell--non-numeric">{{item.datiPersonali.nome}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.datiPersonali.cognome}}</td>
+       <td><button mdl-button mdl-button-type="mini-fab" mdl-colored="primary" (click)="dettaglioCliente(item.$key)"><mdl-icon>accessibility</mdl-icon></button></td>
+       <td><button mdl-button mdl-button-type="mini-fab" mdl-colored="primary" (click)="ordiniCliente(item.$key)"><mdl-icon>shopping_cart</mdl-icon></button></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</div>
+

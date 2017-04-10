@@ -1,0 +1,30 @@
+   <div class="sposta">
+   <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="tornaMezzi()">Torna alla lista ordini</button>
+   </div>
+<div class="mdl-grid">
+   <!--Inizio Cella-->
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Cliente</th>
+      <th class="mdl-data-table__cell--non-numeric">Ordine</th>
+      <th class="mdl-data-table__cell--non-numeric">Consegnato</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listaConsegne | async ">
+	   <td><button mdl-button mdl-button-type="raised" mdl-colored="primary" (click)="dettaglioCliente(item.idCliente)">Cliente</button></td>
+
+	   <td><button mdl-button mdl-button-type="raised" mdl-colored="primary" (click)="dettaglioOrdine(item.$key)">Ordine</button></td>
+
+	   <td ><button mdl-button mdl-button-type="fab" mdl-colored="accent" disbaled><mdl-icon>clear</mdl-icon></button></td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+

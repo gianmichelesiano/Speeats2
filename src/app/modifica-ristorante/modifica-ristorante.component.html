@@ -1,0 +1,52 @@
+
+<h3>Modifica ristorante</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+
+<form>
+
+  <p class="form-group">
+    <mdl-textfield label="Nome ristorante" type="text" #nome [value]="(ristorante | async)?.nome" floating-label></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Tipologia" type="text" #tipologia [value]="(ristorante | async)?.tipologia" floating-label></mdl-textfield>
+  </p>
+
+    <p class="form-group">
+    <mdl-textfield label="Indirizzo" type="text" #indirizzo [value]="(ristorante | async)?.indirizzo" floating-label></mdl-textfield>
+  </p>
+
+      <p class="form-group">
+    <mdl-textfield label="Giorni Apertura" type="text" #giorniApertura [value]="(ristorante | async)?.giorniApertura" floating-label></mdl-textfield>
+  </p>
+
+    <p class="form-group">
+    <mdl-textfield label="Max tempo di consegna" type="text" #maxTempoConsegna [value]="(ristorante | async)?.maxTempoConsegna" floating-label></mdl-textfield>
+  </p>
+
+    <p class="form-group">
+    <mdl-textfield label="Costo Consegna" type="text" #costoConsegna [value]="(ristorante | async)?.costoConsegna" floating-label></mdl-textfield>
+  </p>
+
+    <p class="form-group">
+    <mdl-textfield label="Ordine minimo" type="text" #ordineMin [value]="(ristorante | async)?.ordineMin" floating-label></mdl-textfield>
+  </p>
+
+
+
+ <p class="form-group">
+  <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="updateItem(ristorante.$key, nome.value, tipologia.value, indirizzo.value, giorniApertura.value, maxTempoConsegna.value, costoConsegna.value,ordineMin.value)">
+    Salva
+  </button>
+  </p>
+</form>  
+
+</div>
+</div>
+</div>
+</div>

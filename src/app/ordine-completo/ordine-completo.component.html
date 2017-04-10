@@ -1,0 +1,40 @@
+   <div class="sposta">
+   <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="tornaOrdini()">Torna indietro</button>
+   </div>
+
+
+
+<div class="mdl-grid">
+   <!--Inizio Cella-->
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Data</th>
+      <th class="mdl-data-table__cell--non-numeric">Piatto</th>
+      <th class="mdl-data-table__cell--non-numeric">Quantità</th>
+      <th class="mdl-data-table__cell--non-numeric">Ristorante</th>
+      <th class="mdl-data-table__cell--non-numeric">Pronto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of ordineCompleto | async ">
+       <td class="mdl-data-table__cell--non-numeric">{{item.data*1000 | date:'short'}}</td>
+       
+       <td class="mdl-data-table__cell--non-numeric">{{item.nomePiatto}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.quantity}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{ (item.ristorante | async)?.nome }}</td>
+
+
+   
+		<td *ngIf="!item.pronto"><button mdl-button mdl-button-type="mini-fab" mdl-colored="accent" (click)="cambiaPronto(item.$key, item.pronto, item.idOrdine)" disabled=""><mdl-icon>clear</mdl-icon></button></td>
+		<td *ngIf="item.pronto"><button mdl-button mdl-button-type="mini-fab" mdl-colored="primary" (click)="cambiaPronto(item.$key, item.pronto, item.idOrdine)" disabled=""><mdl-icon>done</mdl-icon></button></td>
+
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+

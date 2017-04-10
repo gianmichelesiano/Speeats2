@@ -1,0 +1,51 @@
+
+<h3>Modifica Mezzo</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+<form>
+
+  <p class="form-group">
+    <mdl-textfield label="Nome" style="width: 600px;" type="text" #nomeMezzo [value]="(mezzo | async)?.nome"  floating-label></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Tipologia " style="width: 600px;" type="text" #tipologia [value]="(mezzo | async)?.tipologia" floating-label></mdl-textfield>
+  </p>
+
+    <p class="form-group">
+    <mdl-textfield label="Carico Massimo" style="width: 600px;" type="text" #caricoMax [value]="(mezzo | async)?.caricoMax" floating-label></mdl-textfield>
+  </p>
+
+
+
+  <p class="form-group">
+    <mdl-textfield label="Da Consegnare" style="width: 600px;" type="text"  #daConsegnare [value]="(mezzo | async)?.daConsegnare" floating-label></mdl-textfield>
+  </p>
+
+
+ <p class="form-group">
+  <button mdl-button mdl-button-type="raised" mdl-colored="primary" (click)="salvaMezzo(mezzo.$key, nomeMezzo.value,  tipologia.value,  caricoMax.value, daConsegnare.value)">
+    Salva
+  </button>
+  </p>
+
+   <p class="form-group">
+  <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="eliminaMezzo()">
+    Elimina
+  </button>
+  </p>
+
+
+
+
+
+</form>  
+
+</div>
+</div>
+</div>
+</div>

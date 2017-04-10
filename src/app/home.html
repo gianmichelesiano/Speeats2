@@ -1,0 +1,86 @@
+ <h3 >{{ 'BENVENUTO' | translate }} in Speeats!</h3>
+
+  <div class="mdl-grid demo-content">
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <div class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+             <div class="paragrafoHome"><h4>Ristoranti</h4></div>
+             <div class="paragrafoNumero"><h3>{{numRistoranti}}</h3></div>
+            </div>
+
+            <div class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <div class="paragrafoHome"><h4>Clienti</h4></div>
+              <div class="paragrafoNumero"><h3>{{numClienti}}</h3></div>
+            </div>
+            
+            <div class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <div class="paragrafoHome"><h4>Ordini</h4></div>
+              <div class="paragrafoNumero"><h3>{{numOrdini}}</h3></div>
+            </div>
+
+           <div class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <div class="paragrafoHome"><h4>Consegne</h4></div>
+              <div class="paragrafoNumero"><h3>{{numConsegne}}</h3></div>
+            </div>
+          </div>
+  </div>
+ 
+
+ <div class="mdl-grid demo-content">
+   <!--  2 grafici donut -->
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+      <div class="demo-chart mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop">
+        <div style="display: block">
+          <canvas baseChart
+                      [data]="doughnutChartData"
+                      [labels]="doughnutChartLabels"
+                      [chartType]="doughnutChartType"
+                      (chartHover)="chartHovered($event)"
+                      [colors]="doughnutChartColors"
+                      (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+
+      <div class="demo-chart mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop">
+        <div style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          [colors]="pieChartColors" 
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!--  grafico a barre -->
+    <div  class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
+      <div style="display: block">
+        <canvas baseChart height="75"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                [colors]="barChartColors"      
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+
+  <!--  linee -->
+    <div  class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
+      <div style="display: block">
+    <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                [colors]="lineChartColors"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+
+</div>
+

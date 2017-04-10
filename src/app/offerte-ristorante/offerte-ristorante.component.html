@@ -1,0 +1,36 @@
+<div class="sposta">
+   <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="tornaRistorante()">Torna al ristorante</button>
+</div>
+
+<h3>Lista Offerta</h3>
+
+<div class="mdl-grid">
+   <!--Inizio Cella-->
+   <div class="mdl-cell mdl-cell--12-col graybox ">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+
+      <th class="mdl-data-table__cell--non-numeric">Nome</th>
+      <th class="mdl-data-table__cell--non-numeric">Prezzo Normale</th>
+      <th class="mdl-data-table__cell--non-numeric">Prezzo Offerta</th>
+      <th class="mdl-data-table__cell--non-numeric">Scadenza</th>
+      <th class="mdl-data-table__cell--non-numeric">Cancella</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of offerteListFilter; ">
+
+       <td class="mdl-data-table__cell--non-numeric">{{item.nomePiatto}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.prezzo | number: '.2'}} CHF</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.prezzoOfferta | number: '.2'}} CHF</td>
+       <td class="mdl-data-table__cell--non-numeric">{{item.dataScadenza  | date }}</td>
+       <td><button mdl-button mdl-button-type="mini-fab" mdl-colored="accent" (click)="cancellaOfferta(item.$key)"><mdl-icon>delete forever</mdl-icon></button></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

@@ -1,0 +1,38 @@
+
+<h3>Modifica Piatto</h3>
+  <div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--12-col graybox">
+
+<form>
+
+  <p class="form-group">
+    <mdl-textfield label="Nome Piatto" style="width: 600px;" type="text" #nomePiatto [value]="(piatto | async)?.nomePiatto" floating-label></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Tipologia" style="width: 600px;" type="text" #tipologiaPiatto [value]="(piatto | async)?.tipologiaPiatto" floating-label></mdl-textfield>
+  </p>
+
+
+  <p class="form-group">
+    <mdl-textfield label="Ricetta" style="width: 600px;" type="text" #ricetta [value]="(piatto | async)?.ricetta" floating-label></mdl-textfield>
+  </p>
+
+  <p class="form-group">
+    <mdl-textfield label="Prezzo" style="width: 600px;" type="text" #prezzo [value]="(piatto | async)?.prezzo" floating-label></mdl-textfield>
+  </p>
+
+ <p class="form-group">
+  <button mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="updateItem(nomePiatto.value, tipologiaPiatto.value, ricetta.value, prezzo.value)">
+    Salva
+  </button>
+  </p>
+</form>  
+
+</div>
+</div>
+</div>
+</div>
